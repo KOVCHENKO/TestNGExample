@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class LoginTest {
+public class RegistrationTest {
 
     private WebDriver driver;
 
@@ -17,10 +17,10 @@ public class LoginTest {
 
     @Test(priority=1)
     void setup() {
-        WebElement signInButton = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
-        signInButton.click();
+        driver.get(Config.baseUrl + "index.php?controller=authentication&back=my-account");
         System.out.println("This is setup method");
-        driver.findElement(By.id("email_create")).sendKeys("xtest@xtest.com");
-
+        driver.findElement(By.id("email_create")).sendKeys("xtest2@xtest.com");
     }
+
+
 }

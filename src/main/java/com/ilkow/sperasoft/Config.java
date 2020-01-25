@@ -5,17 +5,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 
-class Config {
+public class Config {
+
+    public static String baseUrl = "http://automationpractice.com/";
 
     public static WebDriver init() {
         File file = new File("src/main/resources/chromedriver.exe");
         String absolutePath = file.getAbsolutePath();
 
         System.setProperty("webdriver.chrome.driver", absolutePath);
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://automationpractice.com/");
-
-        return driver;
+        return new ChromeDriver();
     }
 
 }
