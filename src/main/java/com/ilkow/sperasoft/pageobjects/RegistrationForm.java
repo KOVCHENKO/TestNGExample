@@ -1,6 +1,7 @@
 package com.ilkow.sperasoft.pageobjects;
 
 import com.ilkow.sperasoft.Config;
+import com.ilkow.sperasoft.entities.Customer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -77,6 +78,9 @@ public class RegistrationForm {
     @FindBy(id = "alias")
     private WebElement addressAlias;
 
+    @FindBy(id = "submitAccount")
+    private WebElement submitButton;
+
     public RegistrationForm(WebDriver driver) {
         // Check page validity
         if (!driver.getCurrentUrl().contains(URL)) {
@@ -85,6 +89,14 @@ public class RegistrationForm {
 
         PageFactory.initElements(driver, this);
         this.driver = driver;
+    }
+
+    private void registerUser(Customer customer) {
+        customerTitle.sendKeys("mr");
+        customerEmail.sendKeys("email");
+        customerFirstName.sendKeys("ilkov");
+
+        submitButton.click();
     }
 
     public void registerUserSuccess() {
