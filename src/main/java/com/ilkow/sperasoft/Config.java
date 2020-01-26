@@ -9,7 +9,7 @@ public class Config {
 
     public static String baseUrl = "http://automationpractice.com/";
 
-    public static WebDriver init() {
+    static WebDriver init() {
         File file = new File("src/main/resources/chromedriver.exe");
         String absolutePath = file.getAbsolutePath();
 
