@@ -213,6 +213,18 @@ public class Customer {
         this.addressAlias = addressAlias;
     }
 
+    public Customer createValid() {
+        this.setFirstName("TestFirstName");
+        this.setLastName("TestLastName");
+        this.setHomePhone("12019424132");
+        this.setPassword("test_password");
+        this.setAddress1("Main st., Company");
+        this.setCity("Albuquerque");
+        this.setPostCode("00000");
+        this.setState("test_state");
+        return this;
+    }
+
     public String[] toArray() {
         return new String[] {
             title,

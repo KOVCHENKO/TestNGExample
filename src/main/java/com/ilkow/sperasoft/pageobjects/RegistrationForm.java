@@ -2,10 +2,12 @@ package com.ilkow.sperasoft.pageobjects;
 
 import com.ilkow.sperasoft.Config;
 import com.ilkow.sperasoft.entities.Customer;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,11 @@ public class RegistrationForm {
 
     private WebDriver driver;
 
-    @FindBy(id = "id_gender1")
-    private WebElement customerTitle;
+    @FindBy(id = "uniform-id_gender1")
+    private WebElement customerTitleMr;
+
+    @FindBy(id = "uniform-id_gender2")
+    private WebElement customerTitleMrs;
 
     @FindBy(id = "customer_firstname")
     private WebElement customerFirstName;
@@ -32,13 +37,13 @@ public class RegistrationForm {
     private WebElement customerPassword;
 
     // Separate element
-    @FindBy(id = "days")
+    @FindBy(id = "uniform-days")
     private WebElement dayOfBirth;
 
-    @FindBy(id = "month")
+    @FindBy(id = "uniform-months")
     private WebElement monthOfBirth;
 
-    @FindBy(id = "years")
+    @FindBy(id = "uniform-years")
     private WebElement yearOfBirth;
 
     // Separate element
@@ -60,13 +65,13 @@ public class RegistrationForm {
     @FindBy(id = "city")
     private WebElement city;
 
-    @FindBy(id = "id_state")
+    @FindBy(xpath = "//*[@id=\"id_state\"]")
     private WebElement state;
 
     @FindBy(id = "postcode")
     private WebElement postCode;
 
-    @FindBy(id = "id_country")
+    @FindBy(id = "uniform-id_country")
     private WebElement country;
 
     @FindBy(id = "other")
@@ -94,25 +99,59 @@ public class RegistrationForm {
         this.driver = driver;
     }
 
-    private void registerUser(Customer customer) {
-        customerTitle.sendKeys("mr");
-        customerEmail.sendKeys("email");
-        customerFirstName.sendKeys("ilkov");
+    public void registerCustomerSuccess(Customer customer) {
+
+        customerFirstName.sendKeys(customer.getFirstName());
+        customerLastName.sendKeys(customer.getLastName());
+        homePhone.sendKeys(customer.getHomePhone());
+        customerPassword.sendKeys(customer.getPassword());
+        address1.sendKeys(customer.getAddress1());
+        city.sendKeys(customer.getCity());
+        postCode.sendKeys(customer.getPostCode());
+
+        Select select = new Select(state);
+        List<WebElement> options = select.getOptions();
+        for (WebElement option : options) {
+            if (option.getText().equals("Alabama")) {
+                option.click();
+                break;
+            }
+        }
 
         submitButton.click();
-    }
-
-    public void registerUserSuccess() {
-
     }
 
     public void registerUserForm() {
 
     }
 
-    public List<WebElement> checkAllElementsArePresentOnThePage() {
+    public List<WebElement> getAllElementsOfThePage() {
+        String attribute = dayOfBirth.getAttribute("opacity");
+        System.out.println(attribute);
+
         List<WebElement> registrationFormElements = new ArrayList<WebElement>();
-        registrationFormElements.add(customerTitle);
+        registrationFormElements.add(customerTitleMr);
+        registrationFormElements.add(customerTitleMrs);
+        registrationFormElements.add(customerFirstName);
+        registrationFormElements.add(customerLastName);
+        registrationFormElements.add(customerEmail);
+        registrationFormElements.add(customerPassword);
+        registrationFormElements.add(dayOfBirth);
+        registrationFormElements.add(monthOfBirth);
+        registrationFormElements.add(yearOfBirth);
+        registrationFormElements.add(firstNameAddress);
+        registrationFormElements.add(lastNameAddress);
+        registrationFormElements.add(company);
+        registrationFormElements.add(address1);
+        registrationFormElements.add(address2);
+        registrationFormElements.add(city);
+        registrationFormElements.add(postCode);
+        registrationFormElements.add(country);
+        registrationFormElements.add(additionalInformation);
+        registrationFormElements.add(homePhone);
+        registrationFormElements.add(mobilePhone);
+        registrationFormElements.add(addressAlias);
+        registrationFormElements.add(submitButton);
 
         return registrationFormElements;
     }
