@@ -109,11 +109,11 @@ public class RegistrationForm {
 
         customerFirstName.sendKeys(customer.getFirstName());
         customerLastName.sendKeys(customer.getLastName());
-        homePhone.sendKeys(customer.getHomePhone());
+        homePhone.sendKeys(customer.getCustomerAddress().getHomePhone());
         customerPassword.sendKeys(customer.getPassword());
-        address1.sendKeys(customer.getAddress1());
-        city.sendKeys(customer.getCity());
-        postCode.sendKeys(customer.getPostCode());
+        address1.sendKeys(customer.getCustomerAddress().getAddress1());
+        city.sendKeys(customer.getCustomerAddress().getCity());
+        postCode.sendKeys(customer.getCustomerAddress().getPostCode());
 
         Select select = new Select(state);
         List<WebElement> options = select.getOptions();
@@ -132,11 +132,7 @@ public class RegistrationForm {
     public void registerCustomerFailed(Customer customer) {
         customerFirstName.sendKeys(customer.getFirstName());
         customerLastName.sendKeys(customer.getLastName());
-        homePhone.sendKeys(customer.getHomePhone());
         customerPassword.sendKeys(customer.getPassword());
-        address1.sendKeys(customer.getAddress1());
-        city.sendKeys(customer.getCity());
-        postCode.sendKeys(customer.getPostCode());
 
         submitButton.click();
     }

@@ -18,31 +18,7 @@ public class Customer {
 
     private String yearOfBirth;
 
-    private String firstNameAddress;
-
-    private String lastNameAddress;
-
-    private String company;
-
-    private String address1;
-
-    private String address2;
-
-    private String city;
-
-    private String state;
-
-    private String postCode;
-
-    private String country;
-
-    private String additionalInformation;
-
-    private String homePhone;
-
-    private String mobilePhone;
-
-    private String addressAlias;
+    private CustomerAddress customerAddress;
 
     public String getTitle() {
         return title;
@@ -109,131 +85,35 @@ public class Customer {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public String getFirstNameAddress() {
-        return firstNameAddress;
+    public CustomerAddress getCustomerAddress() {
+        return customerAddress;
     }
 
-    public void setFirstNameAddress(String firstNameAddress) {
-        this.firstNameAddress = firstNameAddress;
-    }
-
-    public String getLastNameAddress() {
-        return lastNameAddress;
-    }
-
-    public void setLastNameAddress(String lastNameAddress) {
-        this.lastNameAddress = lastNameAddress;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getAdditionalInformation() {
-        return additionalInformation;
-    }
-
-    public void setAdditionalInformation(String additionalInformation) {
-        this.additionalInformation = additionalInformation;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
-    }
-
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
-    }
-
-    public String getAddressAlias() {
-        return addressAlias;
-    }
-
-    public void setAddressAlias(String addressAlias) {
-        this.addressAlias = addressAlias;
+    public void setCustomerAddress(CustomerAddress customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
     public Customer createValid() {
         this.setFirstName("TestFirstName");
         this.setLastName("TestLastName");
-        this.setHomePhone("12019424132");
         this.setPassword("test_password");
-        this.setAddress1("Main st., Company");
-        this.setCity("Albuquerque");
-        this.setPostCode("00000");
-        this.setState("test_state");
+
+        CustomerAddress customerAddress = new CustomerAddress();
+        customerAddress.setHomePhone("12019424132");
+        customerAddress.setHomePhone("12019424132");
+        customerAddress.setAddress1("Main st., Company");
+        customerAddress.setCity("Albuquerque");
+        customerAddress.setPostCode("00000");
+        customerAddress.setState("test_state");
+        this.setCustomerAddress(customerAddress);
+
         return this;
     }
 
     public Customer createInvalid() {
         this.setFirstName("test_first_name");
         this.setLastName("test_last_name");
-        this.setHomePhone("12019424132");
         this.setPassword("test_password");
-        this.setAddress1("Main st., Company");
-        this.setCity("Albuquerque");
-        this.setPostCode("00000");
-        this.setState("test_state");
         return this;
     }
 }
