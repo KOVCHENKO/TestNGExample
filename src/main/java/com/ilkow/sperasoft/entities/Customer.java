@@ -236,30 +236,4 @@ public class Customer {
         this.setState("test_state");
         return this;
     }
-
-    public String[] toArray() {
-        return new String[] {
-            title,
-            firstName,
-            lastName,
-            email,
-            password,
-            dayOfBirth,
-            monthOfBirth,
-            yearOfBirth,
-            firstNameAddress,
-            lastNameAddress,
-            company,
-            address1,
-            address2,
-            city,
-            state,
-            postCode,
-            country,
-            additionalInformation,
-            homePhone,
-            mobilePhone,
-            addressAlias
-        };
-    }
 }

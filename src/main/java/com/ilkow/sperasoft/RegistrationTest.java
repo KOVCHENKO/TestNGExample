@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -21,12 +22,13 @@ public class RegistrationTest {
     private Customer customer;
 
     @BeforeMethod
-    void setUp() {
+    @Parameters({"registrationUrl"})
+    void setUp(String registrationUrl) {
         driver = Config.init();
         customer = new Customer();
         customer.setEmail();
 
-        driver.get(Config.baseUrl + "index.php?controller=authentication&back=my-account");
+        driver.get(Config.baseUrl + registrationUrl);
         driver.findElement(By.id("email_create")).sendKeys(customer.getEmail());
         driver.findElement(By.id("SubmitCreate")).click();
 
