@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegistrationForm {
 
     private static String URL = Config.baseUrl + "index.php?controller=authentication&back=my-account";
@@ -105,5 +108,12 @@ public class RegistrationForm {
 
     public void registerUserForm() {
 
+    }
+
+    public List<WebElement> checkAllElementsArePresentOnThePage() {
+        List<WebElement> registrationFormElements = new ArrayList<WebElement>();
+        registrationFormElements.add(customerTitle);
+
+        return registrationFormElements;
     }
 }
