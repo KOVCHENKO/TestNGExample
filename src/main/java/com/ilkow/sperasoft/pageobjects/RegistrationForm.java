@@ -2,7 +2,6 @@ package com.ilkow.sperasoft.pageobjects;
 
 import com.ilkow.sperasoft.Config;
 import com.ilkow.sperasoft.entities.Customer;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -99,7 +98,7 @@ public class RegistrationForm {
         this.driver = driver;
     }
 
-    public void registerCustomerSuccess(Customer customer) {
+    public MyAccountPage registerCustomerSuccess(Customer customer) {
 
         customerFirstName.sendKeys(customer.getFirstName());
         customerLastName.sendKeys(customer.getLastName());
@@ -119,10 +118,20 @@ public class RegistrationForm {
         }
 
         submitButton.click();
+
+        return new MyAccountPage(driver);
     }
 
-    public void registerUserForm() {
+    public void registerCustomerFailed(Customer customer) {
+        customerFirstName.sendKeys(customer.getFirstName());
+        customerLastName.sendKeys(customer.getLastName());
+        homePhone.sendKeys(customer.getHomePhone());
+        customerPassword.sendKeys(customer.getPassword());
+        address1.sendKeys(customer.getAddress1());
+        city.sendKeys(customer.getCity());
+        postCode.sendKeys(customer.getPostCode());
 
+        submitButton.click();
     }
 
     public List<WebElement> getAllElementsOfThePage() {

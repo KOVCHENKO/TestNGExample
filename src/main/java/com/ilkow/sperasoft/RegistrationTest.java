@@ -1,12 +1,14 @@
 package com.ilkow.sperasoft;
 
 import com.ilkow.sperasoft.entities.Customer;
+import com.ilkow.sperasoft.pageobjects.MyAccountPage;
 import com.ilkow.sperasoft.pageobjects.RegistrationForm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class RegistrationTest {
 
     private Customer customer;
 
-    @BeforeTest
+    @BeforeMethod
     void setUp() {
         driver = Config.init();
         customer = new Customer();
@@ -49,13 +51,25 @@ public class RegistrationTest {
         customer.createValid();
 
         RegistrationForm registrationForm = new RegistrationForm(driver);
-        registrationForm.registerCustomerSuccess(customer);
+        MyAccountPage myAccountPage = registrationForm.registerCustomerSuccess(customer);
+
+        Assert.assertTrue(myAccountPage.checkTitle());
+    }
+
+    @Test
+    void testRegistrationFailed() {
+        customer.createInvalid();
+        RegistrationForm registrationForm = new RegistrationForm(driver);
+        registrationForm.registerCustomerFailed(customer);
+
+        WebElement validationErrors = driver.findElement(By.className("alert-danger"));
+        Assert.assertTrue(validationErrors.isDisplayed());
 
     }
 
     @AfterMethod
     void tearDown() {
-//        driver.quit();
+        driver.quit();
     }
 
 

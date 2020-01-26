@@ -225,6 +225,18 @@ public class Customer {
         return this;
     }
 
+    public Customer createInvalid() {
+        this.setFirstName("test_first_name");
+        this.setLastName("test_last_name");
+        this.setHomePhone("12019424132");
+        this.setPassword("test_password");
+        this.setAddress1("Main st., Company");
+        this.setCity("Albuquerque");
+        this.setPostCode("00000");
+        this.setState("test_state");
+        return this;
+    }
+
     public String[] toArray() {
         return new String[] {
             title,
@@ -248,7 +260,6 @@ public class Customer {
             homePhone,
             mobilePhone,
             addressAlias
-
         };
     }
 }
