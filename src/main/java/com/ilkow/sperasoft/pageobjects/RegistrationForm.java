@@ -88,6 +88,13 @@ public class RegistrationForm {
     @FindBy(id = "submitAccount")
     private WebElement submitButton;
 
+    @FindBy(className = "alert-danger")
+    private WebElement validationErrors;
+
+    public boolean validationErrorsAreDisplayed() {
+        return this.validationErrors.isDisplayed();
+    }
+
     public RegistrationForm(WebDriver driver) {
         // Check page validity
         if (!driver.getCurrentUrl().contains(URL)) {

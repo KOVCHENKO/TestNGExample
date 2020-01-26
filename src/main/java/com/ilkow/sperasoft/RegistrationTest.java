@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -62,9 +61,7 @@ public class RegistrationTest {
         RegistrationForm registrationForm = new RegistrationForm(driver);
         registrationForm.registerCustomerFailed(customer);
 
-        WebElement validationErrors = driver.findElement(By.className("alert-danger"));
-        Assert.assertTrue(validationErrors.isDisplayed());
-
+        Assert.assertTrue(registrationForm.validationErrorsAreDisplayed());
     }
 
     @AfterMethod
