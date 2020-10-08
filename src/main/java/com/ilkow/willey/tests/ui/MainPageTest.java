@@ -2,6 +2,8 @@ package com.ilkow.willey.tests.ui;
 
 import com.ilkow.willey.pageobjects.MainPage;
 import com.ilkow.willey.utils.TestUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -10,6 +12,7 @@ import java.util.List;
 
 public class MainPageTest extends TestUtility {
 
+    private static final Logger LOG = LoggerFactory.getLogger(MainPageTest.class);
     MainPage mainPage;
 
     @BeforeMethod
@@ -29,6 +32,7 @@ public class MainPageTest extends TestUtility {
 
         mainPage.getAllWhoWeServeDropDownElements()
             .forEach(dropDownElement -> {
+                LOG.debug("Verify drop down element [{}] is displayed", dropDownElement);
                 Assert.assertTrue(isDisplayed(dropDownElement));
                 Assert.assertTrue(menuItems.contains(getElement(dropDownElement).getText()));
             });
