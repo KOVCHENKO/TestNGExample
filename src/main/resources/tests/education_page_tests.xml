@@ -2,10 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <parameter name="menuItems" value="Information &amp; Library Science,Education &amp; Public Policy,K-12 General,Higher Education General,Vocational Technology,Conflict Resolution &amp; Mediation (School settings),Curriculum Tools- General,Special Educational Needs,Theory of Education,Education Special Topics,Educational Research &amp; Statistics,Literacy &amp; Reading,Classroom Management"/>
-    <test verbose="2" preserve-order="true"
-          name="MainPageTest">
+    <test verbose="2" name="MainPageTest">
         <classes>
-            <class name="com.ilkow.willey.tests.EducationPageTest">
+            <class name="com.ilkow.willey.tests.ui.EducationPageTest">
                 <methods>
                     <include name="testEducationMenuElementDisplayedProperly"/>
                     <include name="testEducationSideMenuIsDisplayedProperly"/>

@@ -2,13 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <parameter name="searchInput" value="Java"/>
-    <test verbose="2" preserve-order="true"
-          name="SearchPageTest">
+    <test verbose="2" name="SearchPageTest">
         <classes>
-            <class name="com.ilkow.willey.tests.SearchTest">
+            <class name="com.ilkow.willey.tests.ui.SearchTest">
                 <methods>
-<!--                    <include name="testSearchAreaIsDisplayed"/>-->
-<!--                    <include name="testSearchResults"/>-->
+                    <include name="testSearchAreaIsDisplayed"/>
+                    <include name="testSearchResults"/>
+                </methods>
+            </class>
+            <class name="com.ilkow.willey.tests.api.SearchTest">
+                <methods>
                     <include name="testSearchApiWorksProperly"/>
                 </methods>
             </class>

@@ -1,4 +1,4 @@
-package com.ilkow.willey.tests;
+package com.ilkow.willey.tests.ui;
 
 import com.ilkow.willey.entities.SearchResult;
 import com.ilkow.willey.entities.Suggestion;
@@ -78,9 +78,7 @@ public class SearchTest extends TestUtility {
             Assert.assertTrue(termSpan.text().equalsIgnoreCase(searchedWord));
         });
 
-        searchResult.getPages().forEach(page -> {
-            Assert.assertTrue(page.getTitle().contains("Wiley"));
-        });
+        searchResult.getPages().forEach(page -> Assert.assertTrue(page.getTitle().contains("Wiley")));
         
     }
 }

@@ -2,10 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <parameter name="menuItems" value="Students,Instructors,Book Authors,Professionals,Researchers,Institutions,Librarians,Corporations,Corporations,Journal Editors,Government"/>
-    <test verbose="2" preserve-order="true"
-          name="MainPageTest">
+    <test verbose="2" name="MainPageTest">
         <classes>
-            <class name="com.ilkow.willey.tests.MainPageTest">
+            <class name="com.ilkow.willey.tests.ui.MainPageTest">
                 <methods>
                     <include name="testAllDropDownElementsAreAvailable"/>
                 </methods>

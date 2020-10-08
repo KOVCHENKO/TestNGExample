@@ -1,4 +1,4 @@
-package com.ilkow.willey.tests;
+package com.ilkow.willey.tests.ui;
 
 import com.ilkow.willey.pageobjects.MainPage;
 import com.ilkow.willey.utils.TestUtility;
