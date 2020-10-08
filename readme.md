@@ -1,6 +1,9 @@
 #### Install
 mvn install
 
+#### Requirements
+Java 11
+
 #### Settings
 Change com.ilkow.willey.Config configuraion
 - path: appropriate path of the webdriver (if necessary, default is provided)
