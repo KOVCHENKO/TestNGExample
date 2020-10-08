@@ -65,20 +65,4 @@ public class SearchTest extends TestUtility {
 
         });
     }
-
-    @Test
-    @Parameters({"searchInput"})
-    void testSearchApiWorksProperly(String searchedWord) {
-        SearchResult searchResult = searchRequestService.getSearchResult();
-
-        searchResult.getSuggestion().forEach(suggestion -> {
-            Document termEl = Jsoup.parse(suggestion.getTerm());
-            Element termSpan = termEl.select("span").first();
-
-            Assert.assertTrue(termSpan.text().equalsIgnoreCase(searchedWord));
-        });
-
-        searchResult.getPages().forEach(page -> Assert.assertTrue(page.getTitle().contains("Wiley")));
-        
-    }
 }
