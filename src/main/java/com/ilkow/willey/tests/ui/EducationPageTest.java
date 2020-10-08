@@ -30,19 +30,15 @@ public class EducationPageTest extends TestUtility {
     }
 
     @Test
-    void testEducationMenuElementDisplayedProperly() {
-        hoverElement(mainPage.subjectsDropDown);
-
-        LOG.debug("Verify that education menu element is displayed");
-        Assert.assertTrue(isDisplayed(mainPage.educationMenuItemBy));
-    }
-
-    @Test
     @Parameters({"menuItems"})
     void testEducationSideMenuIsDisplayedProperly(String rawMenuItems) {
         List<String> menuItems = Arrays.asList(rawMenuItems.split(","));
 
         hoverElement(mainPage.subjectsDropDown);
+
+        LOG.debug("Verify that education menu element is displayed");
+        Assert.assertTrue(isDisplayed(mainPage.educationMenuItemBy));
+
         click(mainPage.educationMenuItem);
         click(mainPage.dismissModal);
 

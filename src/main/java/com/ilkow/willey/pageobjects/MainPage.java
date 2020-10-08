@@ -17,7 +17,7 @@ public class MainPage extends PageUtility {
     @FindBy(xpath = "//div[@id='Level1NavNode2']//..//a[@class='collapsed']")
     public WebElement subjectsDropDown;
 
-    @FindBy(xpath = "//a[@href='/en-us/Education-c-ED00']")
+    @FindBy(xpath = "//li//a[@href='/en-us/Education-c-ED00']")
     public WebElement educationMenuItem;
 
     public By educationMenuItemBy = By.xpath("//a[@href='/en-us/Education-c-ED00']");
@@ -36,8 +36,8 @@ public class MainPage extends PageUtility {
     public By bookAuthorsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/book-authors']");
     public By professionalsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/professionals']");
     public By researchersLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/researchers']");
-    public By institutionsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/institutionsLink']");
-    public By librariansLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/librariansLink']");
+    public By institutionsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/institutions']");
+    public By librariansLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/librarians']");
     public By corporationsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/corporations']");
     public By journalEditorsLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/journal-editors']");
     public By bookstoresLink = By.xpath("//li[contains(@class, 'dropdown-submenu')]//a[@href='/en-us/bookstores']");

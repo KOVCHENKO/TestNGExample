@@ -32,6 +32,7 @@ public class MainPageTest extends TestUtility {
 
         mainPage.getAllWhoWeServeDropDownElements()
             .forEach(dropDownElement -> {
+
                 LOG.debug("Verify drop down element [{}] is displayed", dropDownElement);
                 Assert.assertTrue(isDisplayed(dropDownElement));
                 Assert.assertTrue(menuItems.contains(getElement(dropDownElement).getText()));
