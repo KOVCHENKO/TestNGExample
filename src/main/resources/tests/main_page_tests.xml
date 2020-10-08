@@ -5,7 +5,7 @@
     <test verbose="2" preserve-order="true"
           name="MainPageTest">
         <classes>
-            <class name="com.ilkow.willey.tests.ui.MainPageTest">
+            <class name="com.ilkow.willey.tests.MainPageTest">
                 <methods>
                     <include name="testAllDropDownElementsAreAvailable"/>
                 </methods>
