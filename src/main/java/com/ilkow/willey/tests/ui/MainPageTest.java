@@ -20,7 +20,7 @@ public class MainPageTest extends TestUtility {
         this.mainPage = new MainPage();
         this.mainPage.navigateTo();
 
-        click(mainPage.dismissModal);
+        click(mainPage.getMainMenu().dismissModal);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class MainPageTest extends TestUtility {
     void testAllDropDownElementsAreAvailable(String rawMenuItems) {
         List<String> menuItems = Arrays.asList(rawMenuItems.split(","));
 
-        click(mainPage.whoWeServeDropDown);
+        click(mainPage.getMainMenu().whoWeServeDropDown);
 
         mainPage.getAllWhoWeServeDropDownElements()
             .forEach(dropDownElement -> {

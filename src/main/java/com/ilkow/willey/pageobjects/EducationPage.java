@@ -9,6 +9,12 @@ import java.util.ArrayList;
 
 public class EducationPage extends PageUtility {
 
+    public MainMenuPage mainMenuPage;
+
+    public EducationPage() {
+        this.mainMenuPage = new MainMenuPage();
+    }
+
     public By infAndLibraryScience = By.xpath("//a[@href='/en-us/Education/Information+%26+Library+Science-c-ED30']");
     public By eduAndPublicPolicy = By.xpath("//a[@href='/en-us/Education/Education+%26+Public+Policy-c-ED05']");
     public By k12General = By.xpath("//a[@href='/en-us/Education/K+12+General-c-ED10']");
@@ -41,6 +47,10 @@ public class EducationPage extends PageUtility {
                 add(classroomManagement);
             }
         };
+    }
+
+    public MainMenuPage getMainMenu() {
+        return mainMenuPage;
     }
 
     public void navigateTo() {

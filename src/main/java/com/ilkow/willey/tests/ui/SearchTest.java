@@ -30,7 +30,7 @@ public class SearchTest extends TestUtility {
 
         this.mainPage.navigateTo();
 
-        click(mainPage.dismissModal);
+        click(mainPage.getMainMenu().dismissModal);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class SearchTest extends TestUtility {
     @Parameters({"searchInput"})
     void testSearchResults(String searchInput) {
         getElement(mainPage.searchInput).sendKeys(searchInput);
-        click(mainPage.searchButton);
-        click(mainPage.dismissModal);
+        click(mainPage.getMainMenu().searchButton);
+        click(mainPage.getMainMenu().dismissModal);
 
         Assert.assertTrue(isDisplayed(searchPage.productItem));
 

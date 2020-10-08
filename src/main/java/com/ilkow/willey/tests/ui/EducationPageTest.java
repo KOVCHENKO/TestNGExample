@@ -1,7 +1,6 @@
 package com.ilkow.willey.tests.ui;
 
 import com.ilkow.willey.pageobjects.EducationPage;
-import com.ilkow.willey.pageobjects.MainPage;
 import com.ilkow.willey.utils.TestUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,16 +16,14 @@ public class EducationPageTest extends TestUtility {
 
     private static final Logger LOG = LoggerFactory.getLogger(EducationPageTest.class);
 
-    MainPage mainPage;
     EducationPage educationPage;
 
     @BeforeMethod
     void setUp() {
-        this.mainPage = new MainPage();
         this.educationPage = new EducationPage();
-        this.mainPage.navigateTo();
+        this.educationPage.navigateTo();
 
-        click(mainPage.dismissModal);
+        click(this.educationPage.getMainMenu().dismissModal);
     }
 
     @Test
@@ -34,13 +31,13 @@ public class EducationPageTest extends TestUtility {
     void testEducationSideMenuIsDisplayedProperly(String rawMenuItems) {
         List<String> menuItems = Arrays.asList(rawMenuItems.split(","));
 
-        hoverElement(mainPage.subjectsDropDown);
+        hoverElement(educationPage.getMainMenu().subjectsDropDown);
 
         LOG.debug("Verify that education menu element is displayed");
-        Assert.assertTrue(isDisplayed(mainPage.educationMenuItemBy));
+        Assert.assertTrue(isDisplayed(educationPage.getMainMenu().educationMenuItemBy));
 
-        click(mainPage.educationMenuItem);
-        click(mainPage.dismissModal);
+        click(educationPage.getMainMenu().educationMenuItem);
+        click(educationPage.getMainMenu().dismissModal);
 
         educationPage.getAllSideMenuElements()
                 .forEach(dropDownElement -> {

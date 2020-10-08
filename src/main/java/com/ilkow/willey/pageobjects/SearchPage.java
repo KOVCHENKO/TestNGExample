@@ -4,10 +4,6 @@ import com.ilkow.willey.Config;
 import com.ilkow.willey.utils.PageUtility;
 import com.ilkow.willey.utils.TestUtility;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.util.ArrayList;
 
 public class SearchPage extends PageUtility {
 
