@@ -1,4 +1,4 @@
-package com.ilkow.sperasoft;
+package com.ilkow.willey;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,9 +7,9 @@ import java.io.File;
 
 public class Config {
 
-    public static String baseUrl = "http://automationpractice.com/";
+    public static String baseUrl = "https://www.wiley.com/en-us";
 
-    static WebDriver init() {
+    public static WebDriver init() {
         File file = new File("src/main/resources/chromedriver.exe");
         String absolutePath = file.getAbsolutePath();
 
